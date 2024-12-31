@@ -9,34 +9,9 @@ let baseUrl;
     baseUrl = baseUrlGet.api
 })();
 
+
 const yourName = "*©Cʜ4ᴍɪ-ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴄʜ4ᴍɪ ʙᴏʏッ*";
 
-
-//tiktok downloader
-cmd({
-    pattern: "tiktok",
-    alias: ["tt"],
-    desc: "download tt videos",
-    category: "download",
-    react: "🔎",
-    filename: __filename
-},
-async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        if (!q && !q.startsWith("https://")) return reply("give me tiktok url")
-        //fetch data from api  
-        let data = await fetchJson(${baseUrl}/api/tiktokdl?url=${q})
-        reply("Downloading...")
-        //send video (wm,nwm)
-        await conn.sendMessage(from, { video: { url: data.data.no_wm }, mimetype: "video/mp4", caption: - NO-WATERMARK\n\n > *©Cʜ4ᴍɪ-ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴄʜ4ᴍɪ ʙᴏʏッ* }, { quoted: mek })
-        await conn.sendMessage(from, { video: { url: data.data.wm }, mimetype: "video/mp4", caption: - WITH-WATERMARK \n\n > *©Cʜ4ᴍɪ-ᴍᴅ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴄʜ4ᴍɪ ʙᴏʏッ* }, { quoted: mek })  
-        //send audio    
-        await conn.sendMessage(from, { audio: { url: data.data.audio }, mimetype: "audio/mpeg" }, { quoted: mek })  
-    } catch (e) {
-        console.log(e)
-        reply(${e})
-    }
-})
 
 //twitter dl (x)
 cmd({
